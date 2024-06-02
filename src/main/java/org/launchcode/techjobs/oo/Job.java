@@ -13,6 +13,10 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    public static void resetNextId() {
+        nextId = 1;
+    }
+
     public Job() {
         id = nextId;
         nextId++;
@@ -26,6 +30,35 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+//    @Override
+//    public String toString() {
+//        return System.lineSeparator() + System.lineSeparator();
+//    }
+
+//    @Override
+//    public String toString() {
+//        return System.lineSeparator() +
+//                "ID: " + id + System.lineSeparator() +
+//                "Name: " + name + System.lineSeparator() +
+//                "Employer: " + employer + System.lineSeparator() +
+//                "Location: " + location + System.lineSeparator() +
+//                "Position Type: " + positionType + System.lineSeparator() +
+//                "Core Competency: " + coreCompetency + System.lineSeparator();
+//    }
+
+    @Override
+    public String toString() {
+        return System.lineSeparator() +
+                "ID: " + id + System.lineSeparator() +
+                "Name: " + (name.isEmpty() ? "Data not available" : name) + System.lineSeparator() +
+                "Employer: " + (employer.getValue().isEmpty() ? "Data not available" : employer.getValue()) + System.lineSeparator() +
+                "Location: " + (location.getValue().isEmpty() ? "Data not available" : location.getValue()) + System.lineSeparator() +
+                "Position Type: " + (positionType.getValue().isEmpty() ? "Data not available" : positionType.getValue()) + System.lineSeparator() +
+                "Core Competency: " + (coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency.getValue()) + System.lineSeparator();
+
+    }
+
 
     @Override
     public boolean equals(Object o) {
